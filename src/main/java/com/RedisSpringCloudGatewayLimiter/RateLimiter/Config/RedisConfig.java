@@ -17,7 +17,7 @@ public class RedisConfig {
     private int port=6379;
     private int timeout=2000;
 
-    @Bean
+    @Bean(name = "jedisPool")
     public JedisPool getJedisPool()
     {
         JedisPoolConfig poolConfig=new JedisPoolConfig();

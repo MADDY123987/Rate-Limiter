@@ -5,16 +5,25 @@ spring:
   application:
     name: RateLimiter
 
-  cloud:
-    gateway:
-      discovery:
-        locator:
-          enabled: true
+  jmx:
+    enabled: false   # ✅ CORRECT POSITION
 
   redis:
     host: localhost
     port: 6379
     timeout: 2000
+
+management:
+  endpoints:
+    jmx:
+      exposure:
+        exclude: "*"
+
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
 
 rate-limiter:
   capacity: 10
