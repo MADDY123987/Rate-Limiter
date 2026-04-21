@@ -1,0 +1,23 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: RateLimiter
+
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+
+  redis:
+    host: localhost
+    port: 6379
+    timeout: 2000
+
+rate-limiter:
+  capacity: 10
+  refill-rate: 5
+  api-server-url: https://localhost:8080
+  timeout: 5000
